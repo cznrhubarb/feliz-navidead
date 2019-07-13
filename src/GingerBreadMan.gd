@@ -15,7 +15,7 @@ func _physics_process(delta):
 	if player:
 		var direction = (player.position - position).normalized()
 		move_and_collide(direction * Speed * delta)
-		
+
 func take_damage(value):
 	health = health - value
 	hp_bar.update_health(health)
