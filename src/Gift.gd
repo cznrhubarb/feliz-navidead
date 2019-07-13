@@ -10,12 +10,12 @@ var type = "gift"
 func _ready():
 	dialog = get_tree().get_root().find_node("GiftDialog", true, false)
 	weapon = Factory.make_weapon()
-	curse = null
+	curse = get_tree().get_root().find_node("CurseBag", true, false).get_curse()
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(Vector2())
-	if collision_info and collision_info.collider.type == "child":
-		if not last_collision:
+	if collision_info:
+		if not last_collision and collision_info.collider.type == "child":
 			last_collision = collision_info
 			dialog.set_weapon(weapon)
 			dialog.set_curse(curse)

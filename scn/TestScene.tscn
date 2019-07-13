@@ -1,20 +1,36 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://src/Child.gd" type="Script" id=1]
-[ext_resource path="res://img/Boy .PNG" type="Texture" id=2]
+[ext_resource path="res://src/CurseBag.gd" type="Script" id=1]
+[ext_resource path="res://scn/Child.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/TreeFactory.gd" type="Script" id=3]
 [ext_resource path="res://src/GingerFactory.gd" type="Script" id=4]
 [ext_resource path="res://scn/Gift.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/GiftFactory.gd" type="Script" id=6]
 [ext_resource path="res://UI/GameHud.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scn/CurseBag.gd" type="Script" id=8]
 
 [sub_resource type="TileSet" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.47797, 5.13091 )
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.137143, 0.331429, 0.474286, 0.645714, 0.828571, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.890196, 0, 1, 0.266667, 1, 0, 1, 0, 1, 0.882353, 1, 0, 0.0392157, 1, 1, 1, 0, 0.960784, 1, 0.47451, 0, 0.298039, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+gravity = Vector3( 0, 14.81, 0 )
+initial_velocity = 101.01
+initial_velocity_random = 0.15
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 3.0
+color_ramp = SubResource( 3 )
 
 [node name="TestScene" type="Node2D"]
+
+[node name="CurseBag" type="Node" parent="."]
+script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -22,27 +38,7 @@ format = 1
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Child" type="KinematicBody2D" parent="YSort"]
-position = Vector2( 111.772, 71.6002 )
-collision_layer = 16
-collision_mask = 13
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-Speed = 100
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Child"]
-position = Vector2( 0.128685, 2.76682 )
-shape = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="YSort/Child"]
-texture = ExtResource( 2 )
-
-[node name="Camera2D" type="Camera2D" parent="YSort/Child"]
-current = true
-smoothing_enabled = true
-smoothing_speed = 10.0
+[node name="Child" parent="YSort" instance=ExtResource( 2 )]
 
 [node name="TreeFactory" type="Node" parent="YSort"]
 script = ExtResource( 3 )
@@ -58,5 +54,8 @@ script = ExtResource( 6 )
 
 [node name="GameHud" parent="." instance=ExtResource( 7 )]
 
-[node name="CurseBag" type="Node" parent="."]
-script = ExtResource( 8 )
+[node name="ConfettiBlaster" type="Particles2D" parent="."]
+position = Vector2( 7.68941, 38.0199 )
+emitting = false
+explosiveness = 0.81
+process_material = SubResource( 4 )
