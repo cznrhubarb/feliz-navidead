@@ -1,5 +1,4 @@
 
-
 static func make_weapon():
 	var bullet_prototype = null
 	if rand_range(0, 1) > 0.5:
@@ -7,9 +6,9 @@ static func make_weapon():
 	else:
 		bullet_prototype = load("res://scn/MilkGrenade.tscn").instance()
 	
-	bullet_prototype.build("shot", 300, 2, 0, 999, 10)
+	bullet_prototype.build("Shoots", 300, 2, 0, 999, 10)
 	
-	var shots_per_second = rand_range(0.5, 30)
+	var shots_per_second = stepify(rand_range(0.5, 10), 0.1)
 	
 	# Automatic more often than manual
 	var auto = true if rand_range(0, 1) > 0.25 else false

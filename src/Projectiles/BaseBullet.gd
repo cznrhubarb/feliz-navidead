@@ -16,7 +16,7 @@ func build(blt_type, lin_speed, rot_speed, scl_speed, max_life, dmg):
 	for child in get_children():
 		if child is Sprite:
 			sprite = child
-		if child is CollisionShape2D and blt_type == "lobbed":
+		if child is CollisionShape2D and blt_type == "Lobs":
 			child.disabled = true
 	bullet_type = blt_type
 	bullet_speed = lin_speed
@@ -32,12 +32,12 @@ func _physics_process(delta):
 	life_remaining -= delta
 	var scale_mod = 0
 	match bullet_type:
-		"lobbed":
+		"Lobs":
 			position += direction * bullet_speed * delta
 			scale_mod = (max_life_span/2 - abs(life_remaining - max_life_span/2))
 			if life_remaining <= 0:
 				destroy_self()
-		"shot":
+		"Shoots":
 			var collision_info = move_and_collide(direction * bullet_speed * delta)
 			if collision_info:
 				var collider = collision_info.collider
@@ -45,7 +45,7 @@ func _physics_process(delta):
 					# Deal some damage, don't just kill it
 					collider.take_damage(damage)
 				destroy_self()
-		"melee":
+		"Swings":
 			pass
 	
 	sprite.scale = Vector2(current_scale + scale_mod, current_scale + scale_mod)

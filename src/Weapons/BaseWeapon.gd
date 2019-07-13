@@ -4,12 +4,14 @@ var cooldown_max
 var cooldown_timer
 var is_automatic
 var bullet_prototype
+var description
 
 func _init(bullet_proto, shots_per_second, automatic):
 	bullet_prototype = bullet_proto
 	cooldown_max = 1 / shots_per_second
 	cooldown_timer = cooldown_max
 	is_automatic = automatic
+	description = bullet_proto.bullet_type + " " + str(shots_per_second) + " " + "bullets" + " per second.\n" + ("Fully Automatic." if automatic else "Semi Automatic.")
 
 func cooldown(delta):
 	cooldown_timer = max(cooldown_timer - delta, 0)
