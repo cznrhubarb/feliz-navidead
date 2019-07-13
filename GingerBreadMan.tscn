@@ -7,6 +7,8 @@
 extents = Vector2( 4.27496, 6.91256 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 19
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

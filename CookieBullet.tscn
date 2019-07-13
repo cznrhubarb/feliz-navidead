@@ -7,6 +7,8 @@
 radius = 7.42278
 
 [node name="KinematicBody2D2" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
