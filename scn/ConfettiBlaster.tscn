@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ConfettiBlaster.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.2, 0.434286, 0.657143, 0.828571, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.992157, 1, 0, 1, 0, 1, 0.0862745, 1, 0, 0.976471, 1, 1, 0.101961, 0, 1, 1, 0.992157, 0, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 0, 100, 0 )
+initial_velocity = 75.27
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 2 )
+
+[node name="ConfettiBlaster" type="Particles2D"]
+amount = 35
+explosiveness = 0.8
+randomness = 0.12
+process_material = SubResource( 3 )
+script = ExtResource( 1 )
