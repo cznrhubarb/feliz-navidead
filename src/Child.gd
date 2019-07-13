@@ -4,15 +4,18 @@ export var Speed = 300
 var type = "child"
 
 func _physics_process(delta):
+	var deltaPos = Vector2()
 	if Input.is_action_pressed("move_right"):
-		position.x += Speed * delta
+		deltaPos.x += Speed
 	elif Input.is_action_pressed("move_left"):
-		position.x -= Speed * delta
+		deltaPos.x -= Speed
 	
 	if Input.is_action_pressed("move_up"):
-		position.y -= Speed * delta
+		deltaPos.y -= Speed
 	elif Input.is_action_pressed("move_down"):
-		position.y += Speed * delta
+		deltaPos.y += Speed
+	
+	move_and_slide(deltaPos)
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
@@ -20,8 +23,8 @@ func _input(event):
 		shoot(shoot_direction)
 
 func shoot(direction):
-	var bullet_scene = load("res://CookieBullet.tscn")
+	var bullet_scene = load("res://scn/CookieBullet.tscn")
 	var bullet = bullet_scene.instance()
 	bullet.position = position
 	bullet.direction = direction
-	get_owner().add_child(bullet)
+	get_parent().add_child(bullet)
