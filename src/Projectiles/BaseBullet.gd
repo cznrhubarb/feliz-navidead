@@ -10,8 +10,9 @@ var direction
 var sprite
 var bullet_type
 var current_scale = 1
+var damage
 
-func build(blt_type, lin_speed, rot_speed, scl_speed, max_life):
+func build(blt_type, lin_speed, rot_speed, scl_speed, max_life, dmg):
 	for child in get_children():
 		if child is Sprite:
 			sprite = child
@@ -23,6 +24,7 @@ func build(blt_type, lin_speed, rot_speed, scl_speed, max_life):
 	scale_speed = scl_speed
 	max_life_span = max_life
 	life_remaining = max_life_span
+	damage = dmg
 
 func _physics_process(delta):
 	sprite.rotation += delta * 3.14 * rotation_speed
@@ -41,7 +43,7 @@ func _physics_process(delta):
 				var collider = collision_info.collider
 				if collider.type == "enemy":
 					# Deal some damage, don't just kill it
-					collider.queue_free()
+					collider.take_damage(damage)
 				destroy_self()
 		"melee":
 			pass
@@ -54,5 +56,5 @@ func destroy_self():
 
 func real_duplicate():
 	var dupe = duplicate()
-	dupe.build(bullet_type, bullet_speed, rotation_speed, scale_speed, max_life_span)
+	dupe.build(bullet_type, bullet_speed, rotation_speed, scale_speed, max_life_span, damage)
 	return dupe

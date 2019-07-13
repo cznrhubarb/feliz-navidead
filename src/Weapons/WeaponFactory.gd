@@ -7,7 +7,7 @@ static func make_weapon():
 	else:
 		bullet_prototype = load("res://scn/MilkGrenade.tscn").instance()
 	
-	bullet_prototype.build("shot", 300, 2, 0, 999)
+	bullet_prototype.build("shot", 300, 2, 0, 999, 10)
 	
 	var shots_per_second = rand_range(0.5, 30)
 	
