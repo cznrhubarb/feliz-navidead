@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var Speed = 300
+var Speed = 100
 var type = "child"
 
 var game_hud
@@ -81,7 +81,7 @@ func take_damage(value):
 		
 func updateAnimation():
 	if is_moving:
-		anim_player.playback_speed = 1
+		anim_player.playback_speed = Speed/100.0
 	else:
 		anim_player.playback_speed = 0
 		
