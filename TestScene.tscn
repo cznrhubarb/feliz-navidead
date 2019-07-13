@@ -10,7 +10,7 @@ extents = Vector2( 3.87338, 6.64243 )
 [node name="TestScene" type="Node2D"]
 
 [node name="Child" type="KinematicBody2D" parent="."]
-position = Vector2( 470.969, 285.408 )
+position = Vector2( 111.772, 71.6002 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

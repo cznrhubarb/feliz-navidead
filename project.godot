@@ -18,6 +18,15 @@ _global_script_class_icons={
 config/name="santaria"
 run/main_scene="res://TestScene.tscn"
 
+[display]
+
+window/size/width=240
+window/size/height=135
+window/size/test_width=960
+window/size/test_height=540
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [input]
 
 move_right={
