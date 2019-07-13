@@ -1,16 +1,15 @@
-extends Panel
+extends Container
 
 var weapon
 var curse
+var gift
+
+func _ready():
+	find_node("Panel").modulate.a = 0.6
 
 func _on_Open_pressed():
-	var tree = get_tree()
-	var child = tree.get_root().find_node("Child", true, false)
+	var child = get_tree().get_root().find_node("Child", true, false)
 	child.add_weapon(weapon)
 	child.add_curse(curse)
+	gift.queue_free()
 	visible = false
-	get_tree().paused = false
-
-func _on_NoThanks_pressed():
-	visible = false
-	get_tree().paused = false
