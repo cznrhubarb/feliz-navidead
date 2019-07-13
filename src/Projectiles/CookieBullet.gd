@@ -10,5 +10,5 @@ func _physics_process(delta):
 	if collision_info:
 		var collider = collision_info.collider
 		if collider.type == "enemy":
-			collider.queue_free()
+			collider.take_damage(10)
 		queue_free()

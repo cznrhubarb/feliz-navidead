@@ -6,7 +6,6 @@ var curse
 
 func _ready():
 	weapon = Factory.make_weapon()
-	#weapon = load("res://src/Weapons/BaseWeapon.gd").new()
 	curse = null
 
 func _physics_process(delta):
