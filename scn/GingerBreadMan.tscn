@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/GingerBreadMan.gd" type="Script" id=1]
-[ext_resource path="res://img/GingerdeadMan.PNG" type="Texture" id=2]
+[ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://img/GingerdeadMan.PNG" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.27496, 6.91256 )
@@ -14,8 +15,16 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="HP_Bar" parent="." instance=ExtResource( 2 )]
+margin_left = -10.0
+margin_top = -12.0
+margin_right = 10.0
+margin_bottom = -10.5
+rect_scale = Vector2( 0.789312, 0.758374 )
+rect_pivot_offset = Vector2( 10, 1 )
+
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
