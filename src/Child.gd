@@ -3,9 +3,15 @@ extends KinematicBody2D
 export var Speed = 300
 var type = "child"
 
+var game_hud
+var hp_bar
+var health = 100
 var weapons
 
 func _ready():
+	game_hud = get_node("../../GameHud")
+	hp_bar = get_node("../../GameHud/HP_Bar")
+	print(hp_bar.name)
 	randomize()
 	weapons = []
 	#weapons.push_front(load("res://src/Weapons/MilkGrenadeLauncher.gd").new())
@@ -48,3 +54,13 @@ func shoot(direction, auto):
 		if bullet:
 			bullet.position = position
 			get_parent().add_child(bullet)
+
+func take_damage(value):
+	health -= value
+	if hp_bar:
+		hp_bar.update_health(health)
+	else:
+		print("no HP bar found")
+	if health <= 0:
+		queue_free()
+		# TODO: VFX

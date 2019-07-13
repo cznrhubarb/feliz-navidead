@@ -16,11 +16,11 @@ func _ready():
 func _physics_process(delta):
 	if player:
 		var direction = (player.position - position).normalized()
-		move_and_collide(direction * Speed * delta)
+		collision_info = move_and_collide(direction * Speed * delta)
 		if collision_info:
 			var collider = collision_info.collider
 			if collider.type == "child":
-				collider.take_damage(10)
+				collider.take_damage(1)
 		
 func take_damage(value):
 	health -= value
