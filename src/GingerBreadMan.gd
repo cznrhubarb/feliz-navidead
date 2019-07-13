@@ -8,10 +8,12 @@ var player
 var hp_bar
 var health = 100
 var collision_info
+var anim_player
 
 func _ready():
 	player = get_tree().get_root().find_node("Child", true, false)
 	hp_bar = get_node("HP_Bar")
+	anim_player = get_node("AnimationPlayer")
 
 func _physics_process(delta):
 	if player:
@@ -21,6 +23,18 @@ func _physics_process(delta):
 			var collider = collision_info.collider
 			if collider.type == "child":
 				collider.take_damage(1)
+	#Animation
+		anim_player.playback_speed = .5
+		if abs(direction.x) >= abs(direction.y):
+			if direction.x >=0:
+				anim_player.play("WalkRight")
+			else:
+				anim_player.play("WalkLeft")
+		else:
+			if direction.y >=0:
+				anim_player.play("WalkDown")
+			else:	
+				anim_player.play("WalkUp")
 		
 func take_damage(value):
 	health -= value
