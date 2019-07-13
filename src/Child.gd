@@ -62,5 +62,6 @@ func take_damage(value):
 	else:
 		print("no HP bar found")
 	if health <= 0:
-		queue_free()
+		get_tree().paused = true
+		print("You have died.")
 		# TODO: VFX
