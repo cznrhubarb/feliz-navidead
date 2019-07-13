@@ -9,11 +9,13 @@ var health = 100
 var weapons
 var anim_player
 var is_moving = false
+var dialog
 
 func _ready():
 	game_hud = get_node("../../GameHud")
 	hp_bar = get_node("../../GameHud/HP_Bar")
 	anim_player = get_node("AnimationPlayer")
+	dialog = get_tree().get_root().find_node("GiftDialog", true, false)
 	print(hp_bar.name)
 	randomize()
 	weapons = []
@@ -59,11 +61,12 @@ func get_shot_direction():
 	return (get_global_mouse_position() - position).normalized()
 
 func shoot(direction, auto):
-	for weapon in weapons:
-		var bullet = weapon.shoot(direction, auto)
-		if bullet:
-			bullet.position = position
-			get_parent().add_child(bullet)
+	if not dialog.visible:
+		for weapon in weapons:
+			var bullet = weapon.shoot(direction, auto)
+			if bullet:
+				bullet.position = position
+				get_parent().add_child(bullet)
 
 func take_damage(value):
 	health -= value
@@ -93,7 +96,3 @@ func updateAnimation():
 			anim_player.play("WalkDown")
 		else:	
 			anim_player.play("WalkUp")
-	
-	
-	
-	
