@@ -1,15 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://image0.png" type="Texture" id=2]
+[ext_resource path="res://Child.gd" type="Script" id=1]
+[ext_resource path="res://child.png" type="Texture" id=2]
+[ext_resource path="res://GingerFactory.gd" type="Script" id=3]
 
 [node name="TestScene" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Child" type="KinematicBody2D" parent="."]
+position = Vector2( 472.051, 285.679 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+[node name="Sprite" type="Sprite" parent="Child"]
 texture = ExtResource( 2 )
+
+[node name="GingerFactory" type="Node" parent="."]
+script = ExtResource( 3 )
