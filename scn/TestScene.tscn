@@ -29,6 +29,10 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="YSort/Child"]
 texture = ExtResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="YSort/Child"]
+current = true
+smoothing_enabled = true
+
 [node name="TreeFactory" type="Node" parent="YSort"]
 script = ExtResource( 3 )
 
