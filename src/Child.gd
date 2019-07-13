@@ -7,10 +7,13 @@ var game_hud
 var hp_bar
 var health = 100
 var weapons
+var anim_player
+var is_moving = false
 
 func _ready():
 	game_hud = get_node("../../GameHud")
 	hp_bar = get_node("../../GameHud/HP_Bar")
+	anim_player = get_node("AnimationPlayer")
 	print(hp_bar.name)
 	randomize()
 	weapons = []
@@ -23,18 +26,25 @@ func add_curse(curse):
 	pass
 
 func _physics_process(delta):
+	is_moving = false
 	var deltaPos = Vector2()
 	if Input.is_action_pressed("move_right"):
 		deltaPos.x += Speed
+		is_moving = true
+		
 	elif Input.is_action_pressed("move_left"):
 		deltaPos.x -= Speed
-	
+		is_moving = true
+
 	if Input.is_action_pressed("move_up"):
 		deltaPos.y -= Speed
+		is_moving = true
 	elif Input.is_action_pressed("move_down"):
 		deltaPos.y += Speed
+		is_moving = true
 	
 	move_and_slide(deltaPos)
+	updateAnimation()
 	
 	for weapon in weapons:
 		weapon.cooldown(delta)
@@ -65,3 +75,25 @@ func take_damage(value):
 		get_tree().paused = true
 		print("You have died.")
 		# TODO: VFX
+		
+func updateAnimation():
+	if is_moving:
+		anim_player.playback_speed = 1
+	else:
+		anim_player.playback_speed = 0
+		
+	var direction = get_shot_direction()
+	if abs(direction.x) >= abs(direction.y):
+		if direction.x >=0:
+			anim_player.play("WalkRight")
+		else:
+			anim_player.play("WalkLeft")
+	else:
+		if direction.y >=0:
+			anim_player.play("WalkDown")
+		else:	
+			anim_player.play("WalkUp")
+	
+	
+	
+	
