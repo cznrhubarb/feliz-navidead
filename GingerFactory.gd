@@ -7,4 +7,4 @@ func _ready():
 		var ginger = ginger_scene.instance()
 		ginger.position = Vector2(rand_range(0, scene_size.x), rand_range(0, scene_size.y))
 		print(ginger.position)
-		get_owner().add_child(ginger)
+		add_child(ginger)
