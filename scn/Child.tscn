@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Child.gd" type="Script" id=1]
+[ext_resource path="res://img/Boy .PNG" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.47797, 5.13091 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "WalkRight"
+
+[node name="Child" type="KinematicBody2D"]
+position = Vector2( 111.772, 71.6002 )
+collision_layer = 16
+collision_mask = 13
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+Speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.128685, 2.76682 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/WalkRight = SubResource( 3 )
