@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cane.png-5d6c6e7fc520d3cb987acca2c0a8c9dd.stex"
+path="res://.import/ginger.png-1a20cf830a4f15eabee3285b7d321a00.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cane.png"
-dest_files=[ "res://.import/cane.png-5d6c6e7fc520d3cb987acca2c0a8c9dd.stex" ]
+source_file="res://img/ginger.png"
+dest_files=[ "res://.import/ginger.png-1a20cf830a4f15eabee3285b7d321a00.stex" ]
 
 [params]
 
