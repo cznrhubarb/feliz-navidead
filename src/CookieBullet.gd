@@ -9,6 +9,6 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(direction * BulletSpeed * delta)
 	if collision_info:
 		var collider = collision_info.collider
-		if collider.type and collider.type == "enemy":
+		if collider.type == "enemy":
 			collider.queue_free()
-			queue_free()
+		queue_free()

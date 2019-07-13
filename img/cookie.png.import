@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ginger.png-0b330422c542726f7e2485b418c636f4.stex"
+path="res://.import/cookie.png-c68eab798fb77efee02039f883b00fac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ginger.png"
-dest_files=[ "res://.import/ginger.png-0b330422c542726f7e2485b418c636f4.stex" ]
+source_file="res://img/cookie.png"
+dest_files=[ "res://.import/cookie.png-c68eab798fb77efee02039f883b00fac.stex" ]
 
 [params]
 
