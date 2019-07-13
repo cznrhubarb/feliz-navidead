@@ -5,7 +5,7 @@
 [ext_resource path="res://src/TreeFactory.gd" type="Script" id=3]
 [ext_resource path="res://src/GingerFactory.gd" type="Script" id=4]
 [ext_resource path="res://scn/Gift.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scn/GiftFactory.gd" type="Script" id=6]
+[ext_resource path="res://src/GiftFactory.gd" type="Script" id=6]
 [ext_resource path="res://UI/GameHud.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
