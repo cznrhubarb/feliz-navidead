@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var BulletSpeed = 500
+export var BulletSpeed = 400
 var type = "bullet"
 
 var direction = Vector2()
