@@ -6,9 +6,15 @@ var type = "child"
 var weapons
 
 func _ready():
+	randomize()
 	weapons = []
-	weapons.push_front(load("res://src/Weapons/CookieGun.gd").new())
-	weapons.push_front(load("res://src/Weapons/MilkGrenadeLauncher.gd").new())
+	#weapons.push_front(load("res://src/Weapons/MilkGrenadeLauncher.gd").new())
+
+func add_weapon(weapon):
+	weapons.push_front(weapon)
+
+func add_curse(curse):
+	pass
 
 func _physics_process(delta):
 	var deltaPos = Vector2()

@@ -1,8 +1,5 @@
 extends "res://src/Weapons/BaseWeapon.gd"
 
-const cooldown_max = 1
-var cooldown_timer = 0
-
 func cooldown(delta):
 	cooldown_timer = max(cooldown_timer - delta, 0)
 
