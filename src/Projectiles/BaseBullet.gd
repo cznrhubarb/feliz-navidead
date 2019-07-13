@@ -11,15 +11,12 @@ var sprite
 var bullet_type
 var current_scale = 1
 
-func build(bullet_spr_name, blt_type, lin_speed, rot_speed, scl_speed, max_life):
-	# TODO: add sprite and shape
-#	add_child(load("res://scn/Projectiles/" + bullet_spr_name + "_sprite.tscn").instance())
-#	add_child(load("res://scn/Projectiles/" + bullet_spr_name + "_shape.tscn").instance())
-#	load("res://scn/CookieBullet.tscn").instance()
+func build(blt_type, lin_speed, rot_speed, scl_speed, max_life):
 	for child in get_children():
 		if child is Sprite:
 			sprite = child
-			break
+		if child is CollisionShape2D and blt_type == "lobbed":
+			child.disabled = true
 	bullet_type = blt_type
 	bullet_speed = lin_speed
 	rotation_speed = rot_speed
@@ -54,3 +51,8 @@ func _physics_process(delta):
 func destroy_self():
 	# Explode if necessary. Imagine we just create a bunch of 'shot' type new bullets with short lifespans
 	queue_free()
+
+func real_duplicate():
+	var dupe = duplicate()
+	dupe.build(bullet_type, bullet_speed, rotation_speed, scale_speed, max_life_span)
+	return dupe

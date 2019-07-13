@@ -8,7 +8,6 @@ var health = 100
 
 func _ready():
 	player = get_tree().get_root().find_node("Child", true, false)
-	print(health)
 
 func _physics_process(delta):
 	if player:

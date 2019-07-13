@@ -1,12 +1,14 @@
 
+
 static func make_weapon():
 	var bullet_prototype = null
-	
-	#build(bullet_spr_name, blt_type, lin_speed, rot_speed, scl_speed, max_life):
 	if rand_range(0, 1) > 0.5:
 		bullet_prototype = load("res://scn/CookieBullet.tscn").instance()
 	else:
 		bullet_prototype = load("res://scn/MilkGrenade.tscn").instance()
+	
+	bullet_prototype.build("shot", 300, 2, 0, 999)
+	
 	var shots_per_second = rand_range(0.5, 30)
 	
 	# Automatic more often than manual

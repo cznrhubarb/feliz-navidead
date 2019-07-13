@@ -18,6 +18,9 @@ position = Vector2( 111.772, 71.6002 )
 collision_layer = 16
 collision_mask = 13
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 Speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Child"]

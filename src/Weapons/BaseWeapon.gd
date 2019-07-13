@@ -23,6 +23,6 @@ func can_shoot(auto_shot):
 func shoot(direction, auto_shot):
 	if can_shoot(auto_shot):
 		cooldown_timer = cooldown_max
-		var bullet = bullet_prototype.duplicate()
+		var bullet = bullet_prototype.real_duplicate()
 		bullet.direction = direction
 		return bullet
