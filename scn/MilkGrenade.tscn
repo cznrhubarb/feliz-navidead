@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Projectiles/MilkGrenade.gd" type="Script" id=1]
+[ext_resource path="res://img/Milk.PNG" type="Texture" id=2]
+
+[node name="KinematicBody2D2" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
