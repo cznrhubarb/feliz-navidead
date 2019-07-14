@@ -65,6 +65,9 @@ func _physics_process(delta):
 				if collider.type == "child":
 					collider.take_damage(10)
 					change_state("attack")
+				elif collider.type == "tile_map":
+					idle_duration = 1.6
+					change_state("idle")
 			else:
 				dash_duration -= delta
 				if dash_duration <= 0:
@@ -126,6 +129,7 @@ func change_state(new_state):
 			collision_layer = 0
 			collision_mask = 0
 			set_collision_mask_bit(4, true)
+			set_collision_mask_bit(0, true)
 			dash_duration = 0.75
 			dash_direction = (player.position - position).normalized()
 			anim_player.play("Run")

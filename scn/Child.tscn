@@ -77,7 +77,7 @@ tracks/0/keys = {
 [node name="Child" type="KinematicBody2D"]
 position = Vector2( 111.772, 71.6002 )
 collision_layer = 16
-collision_mask = 13
+collision_mask = 77
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
