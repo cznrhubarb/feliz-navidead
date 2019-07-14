@@ -41,7 +41,7 @@ func add_curse(curse):
 	
 	curses.push_front(curse)
 	if curse.key == "quake":
-		find_node("ChildCamera").shake(9999, 30, 5)
+		find_node("ChildCamera").shake(9999, 20, 4)
 		get_node("Quake").play()
 	elif curse.key == "gift_horse":
 		dialog.find_node("WeaponText").text = "???"
