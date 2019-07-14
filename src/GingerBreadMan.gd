@@ -40,6 +40,8 @@ func take_damage(value):
 	health -= value
 	hp_bar.update_health(health)
 	if health <= 0:
+		var game_hud = get_tree().get_root().find_node("GameHud", true, false)
+		game_hud.add_score(50)
 		queue_free()
 		# TODO: VFX
 		
