@@ -71,7 +71,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		delta_pos.x += Speed
 		is_moving = true
-		
+	
 	elif Input.is_action_pressed("move_left"):
 		delta_pos.x -= Speed
 		is_moving = true
