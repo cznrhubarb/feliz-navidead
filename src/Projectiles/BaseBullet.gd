@@ -30,13 +30,13 @@ func _physics_process(delta):
 	sprite.rotation += delta * 3.14 * rotation_speed
 	current_scale += delta * scale_speed
 	life_remaining -= delta
+	if life_remaining <= 0:
+		destroy_self()
 	var scale_mod = 0
 	match bullet_type:
 		"Lobs":
 			position += direction * bullet_speed * delta
 			scale_mod = (max_life_span/2 - abs(life_remaining - max_life_span/2))
-			if life_remaining <= 0:
-				destroy_self()
 		"Shoots":
 			var collision_info = move_and_collide(direction * bullet_speed * delta)
 			if collision_info:
