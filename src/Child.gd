@@ -13,6 +13,9 @@ var is_moving = false
 var dialog
 var shoot_in_reverse = false
 var run_in_reverse = false
+var under_penalty = false
+var penalty_delay = 1
+var penalty_timer = penalty_delay
 
 func _ready():
 	game_hud = get_node("../../GameHud")
@@ -37,6 +40,8 @@ func add_curse(curse):
 		shoot_in_reverse = true
 	elif curse.key == "reverse_run":
 		run_in_reverse = true
+	elif curse.key == "penalty":
+		under_penalty = true
 
 func has_curse(curse_name):
 	for curse in curses:
@@ -45,6 +50,15 @@ func has_curse(curse_name):
 	return false
 
 func _physics_process(delta):
+	if under_penalty:
+		penalty_timer -= delta
+		if penalty_timer <= 0:
+			penalty_timer = penalty_delay
+			var game_hud = get_tree().get_root().find_node("GameHud", true, false)
+			var cost = 2
+			if game_hud.score > cost:
+				game_hud.add_score(-cost)
+	
 	is_moving = false
 	var delta_pos = Vector2()
 	if Input.is_action_pressed("move_right"):
