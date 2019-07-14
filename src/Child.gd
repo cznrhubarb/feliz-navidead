@@ -118,6 +118,7 @@ func shoot(direction, auto):
 			var bullet = weapon.shoot(direction, auto)
 			if bullet:
 				bullet.position = position
+				get_node("Shoot").play()
 				get_parent().add_child(bullet)
 
 func take_damage(value):

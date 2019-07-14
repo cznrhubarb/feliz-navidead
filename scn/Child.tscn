@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Child.gd" type="Script" id=1]
 [ext_resource path="res://img/Anim/PlayerGirl_Walk_Anim.PNG" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://aud/child_step_one.ogg" type="AudioStream" id=4]
 [ext_resource path="res://aud/child_step_two.ogg" type="AudioStream" id=5]
 [ext_resource path="res://aud/quake.ogg" type="AudioStream" id=6]
+[ext_resource path="res://aud/shot.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.47797, 5.13091 )
@@ -113,3 +114,7 @@ stream = ExtResource( 5 )
 [node name="Quake" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -25.0
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -35.0
