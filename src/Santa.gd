@@ -14,6 +14,10 @@ var collision_info
 var anim_player
 var spr
 
+var step_sounds
+var step_sound_one_is_next = true
+var step_delay = 0
+
 var time_to_dash
 var dash_duration
 var dash_direction
@@ -30,8 +34,10 @@ func _ready():
 	spr = get_node("Sprite")
 	regular_collision_layer = collision_layer
 	regular_collision_mask = collision_mask
+	step_sounds = [ get_node("StepOne"), get_node("StepTwo") ]
 
 func _physics_process(delta):
+	step_delay -= delta
 	if state == "idle":
 		idle_duration -= delta
 		if idle_duration > 0:
@@ -43,8 +49,17 @@ func _physics_process(delta):
 			change_state("charge_up")
 	
 	if player:
+		var direction = player.position - position
+		var step_volume = clamp(direction.length(), 0, 200) / 200 * -80
+		
 		if state == "dash":
 			collision_info = move_and_collide(dash_direction * run_speed * delta)
+			if step_delay <= 0:
+				step_delay = 0.1
+				var snd = step_sounds[(0 if step_sound_one_is_next else 1)]
+				step_sound_one_is_next = not step_sound_one_is_next
+				snd.volume_db = step_volume /4
+				snd.play()
 			if collision_info:
 				var collider = collision_info.collider
 				if collider.type == "child":
@@ -55,8 +70,14 @@ func _physics_process(delta):
 				if dash_duration <= 0:
 					change_state("attack")
 		elif state != "charge_up" and state != "attack":
-			var direction = player.position - position
 			if direction.length() < max_follow_distance:
+				if step_delay <= 0:
+					step_delay = 0.14
+					var snd = step_sounds[(0 if step_sound_one_is_next else 1)]
+					step_sound_one_is_next = not step_sound_one_is_next
+					snd.volume_db = step_volume /1.2
+					snd.play()
+			
 				change_state("walk")
 				direction = direction.normalized()
 				collision_info = move_and_collide(direction * walk_speed * delta)

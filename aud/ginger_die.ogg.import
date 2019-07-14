@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ginger_die.ogg-61fa6d428f1b93a48074760145506bef.oggstr"
+
+[deps]
+
+source_file="res://aud/ginger_die.ogg"
+dest_files=[ "res://.import/ginger_die.ogg-61fa6d428f1b93a48074760145506bef.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

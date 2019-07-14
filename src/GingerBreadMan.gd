@@ -47,6 +47,8 @@ func take_damage(value):
 	if health <= 0:
 		var game_hud = get_tree().get_root().find_node("GameHud", true, false)
 		game_hud.add_score(50)
+		# TODO: Doesn't work because the sound stops when the gbman gets deleted
+		#get_node("Groan").play()
 		queue_free()
 		# TODO: VFX
 		

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/quake.ogg-9f7a78b9f0a7689c461e9328a8f3f68d.oggstr"
+
+[deps]
+
+source_file="res://aud/quake.ogg"
+dest_files=[ "res://.import/quake.ogg-9f7a78b9f0a7689c461e9328a8f3f68d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

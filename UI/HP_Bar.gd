@@ -11,10 +11,6 @@ func _ready():
 
 func update_health(health, max_health = 100):
 	var percent = health / float(max_health)
-	print("update")
-	print(health)
-	print(max_health)
-	print(percent)
 	# Update Label to reflect current / max hp
 	# set Tint of TextureProgress to reflect current HP stability level.
 	if percent > 0.75:

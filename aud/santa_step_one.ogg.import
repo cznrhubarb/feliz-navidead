@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/santa_step_one.ogg-f3cd4b3e6bda0370d2e8a2ab173c973b.oggstr"
+
+[deps]
+
+source_file="res://aud/santa_step_one.ogg"
+dest_files=[ "res://.import/santa_step_one.ogg-f3cd4b3e6bda0370d2e8a2ab173c973b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

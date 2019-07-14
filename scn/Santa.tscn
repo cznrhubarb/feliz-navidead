@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Santa.gd" type="Script" id=1]
 [ext_resource path="res://img/Anim/BigSanta_Anim.PNG" type="Texture" id=2]
 [ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://aud/santa_step_one.ogg" type="AudioStream" id=4]
+[ext_resource path="res://aud/santa_step_two.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Charge Up"
@@ -159,3 +161,9 @@ margin_right = 16.0
 margin_bottom = -13.0
 rect_scale = Vector2( 0.789312, 0.758374 )
 rect_pivot_offset = Vector2( 10, 1 )
+
+[node name="StepOne" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="StepTwo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

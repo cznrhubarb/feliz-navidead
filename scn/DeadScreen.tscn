@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/DeadScreen.gd" type="Script" id=1]
 [ext_resource path="res://UI/fonts/BerkshireSwash-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://UI/fonts/Bahianita-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://aud/child_dead.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -51,4 +52,9 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.596078, 0.596078, 0.596078, 1 )
 text = "Better luck in your next life."
 align = 1
+
+[node name="ChokeOnThis" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]

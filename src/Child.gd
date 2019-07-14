@@ -16,6 +16,9 @@ var run_in_reverse = false
 var under_penalty = false
 var penalty_delay = 1
 var penalty_timer = penalty_delay
+var step_sounds
+var step_sound_one_is_next = true
+var step_delay = 0
 #hack
 var already_dead = false
 
@@ -27,6 +30,7 @@ func _ready():
 	randomize()
 	weapons = []
 	curses = []
+	step_sounds = [ get_node("StepOne"), get_node("StepTwo") ]
 
 func add_weapon(weapon):
 	weapons.push_front(weapon)
@@ -35,6 +39,7 @@ func add_curse(curse):
 	curses.push_front(curse)
 	if curse.key == "quake":
 		find_node("ChildCamera").shake(9999, 30, 5)
+		get_node("Quake").play()
 	elif curse.key == "gift_horse":
 		dialog.find_node("WeaponText").text = "???"
 		dialog.find_node("CurseText").text = "???"
@@ -83,6 +88,14 @@ func _physics_process(delta):
 	
 	move_and_slide(delta_pos)
 	updateAnimation()
+	
+	step_delay -= delta
+	if is_moving:
+		if step_delay <= 0:
+			step_delay = 0.12
+			var snd = step_sounds[(0 if step_sound_one_is_next else 1)]
+			step_sound_one_is_next = not step_sound_one_is_next
+			snd.play()
 	
 	for weapon in weapons:
 		weapon.cooldown(delta)

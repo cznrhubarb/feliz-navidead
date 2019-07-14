@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/GingerBreadMan.gd" type="Script" id=1]
 [ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://img/Anim/Gingerbread_Walk_Anim.PNG" type="Texture" id=3]
+[ext_resource path="res://aud/ginger_die.ogg" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.27496, 6.91256 )
@@ -101,3 +102,7 @@ anims/WalkDown = SubResource( 2 )
 anims/WalkLeft = SubResource( 3 )
 anims/WalkRight = SubResource( 4 )
 anims/WalkUp = SubResource( 5 )
+
+[node name="Groan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0

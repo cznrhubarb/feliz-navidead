@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/child_dead.ogg-21f1107441da3770a5ec857b0292401d.oggstr"
+
+[deps]
+
+source_file="res://aud/child_dead.ogg"
+dest_files=[ "res://.import/child_dead.ogg-21f1107441da3770a5ec857b0292401d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
