@@ -1,0 +1,161 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Santa.gd" type="Script" id=1]
+[ext_resource path="res://img/Anim/BigSanta_Anim.PNG" type="Texture" id=2]
+[ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Charge Up"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 10, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "dash" ],
+"method": "change_state"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Run"
+length = 0.16
+loop = true
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "idle" ],
+"method": "change_state"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Stand"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 7.39392, 11.0323 )
+
+[node name="Santa" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 19
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 3
+hframes = 4
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+"anims/Charge Up" = SubResource( 1 )
+anims/Run = SubResource( 2 )
+anims/SackWhack = SubResource( 3 )
+anims/Stand = SubResource( 4 )
+anims/Walk = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.02337, 4.09349 )
+shape = SubResource( 6 )
+
+[node name="HP_Bar" parent="." instance=ExtResource( 3 )]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = -13.0
+rect_scale = Vector2( 0.789312, 0.758374 )
+rect_pivot_offset = Vector2( 10, 1 )

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export var Speed = 10
+export var max_follow_distance = 95
 
 # warning-ignore:unused_class_variable
 var type = "enemy"
@@ -17,24 +18,28 @@ func _ready():
 
 func _physics_process(delta):
 	if player:
-		var direction = (player.position - position).normalized()
-		collision_info = move_and_collide(direction * Speed * delta)
-		if collision_info:
-			var collider = collision_info.collider
-			if collider.type == "child":
-				collider.take_damage(1)
-	#Animation
-		anim_player.playback_speed = .5
-		if abs(direction.x) >= abs(direction.y):
-			if direction.x >=0:
-				anim_player.play("WalkRight")
+		var direction = player.position - position
+		if direction.length() < max_follow_distance:
+			direction = direction.normalized()
+			collision_info = move_and_collide(direction * Speed * delta)
+			if collision_info:
+				var collider = collision_info.collider
+				if collider.type == "child":
+					collider.take_damage(1)
+		#Animation
+			anim_player.playback_speed = .5
+			if abs(direction.x) >= abs(direction.y):
+				if direction.x >=0:
+					anim_player.play("WalkRight")
+				else:
+					anim_player.play("WalkLeft")
 			else:
-				anim_player.play("WalkLeft")
+				if direction.y >=0:
+					anim_player.play("WalkDown")
+				else:	
+					anim_player.play("WalkUp")
 		else:
-			if direction.y >=0:
-				anim_player.play("WalkDown")
-			else:	
-				anim_player.play("WalkUp")
+			anim_player.stop()
 		
 func take_damage(value):
 	health -= value
