@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://UI/GameHud.gd" type="Script" id=1]
 [ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI/fonts/BerkshireSwash-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scn/ConfettiBlaster.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/BugFactory.gd" type="Script" id=7]
+[ext_resource path="res://scn/CurseList.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -38,6 +39,12 @@ font_data = ExtResource( 5 )
 [sub_resource type="DynamicFont" id=8]
 size = 11
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
 
 [node name="GameHud" type="CanvasLayer"]
 pause_mode = 2
@@ -141,4 +148,15 @@ explosiveness = 0.3
 
 [node name="BugFactory" type="Node" parent="."]
 script = ExtResource( 7 )
+
+[node name="CurseListUI" parent="." instance=ExtResource( 8 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 201.389
+margin_top = 121.151
+margin_right = 241.389
+margin_bottom = 138.151
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.309804, 0.00392157, 0.482353, 1 )
+text = "Curses"
 [connection signal="pressed" from="GiftDialog/Open" to="GiftDialog" method="_on_Open_pressed"]

@@ -9,7 +9,7 @@ var scatter
 var bullet_color
 
 func _init(bullet_proto, shots_per_second, automatic, scatter_amount):
-	bullet_color = Color(rand_range(0.5, 1), rand_range(0.5, 1), rand_range(0.5, 1))
+	bullet_color = Color(rand_range(0, 1), rand_range(0, 1), rand_range(0, 1))
 	bullet_prototype = bullet_proto
 	cooldown_max = 1 / shots_per_second
 	cooldown_timer = cooldown_max

@@ -10,37 +10,44 @@ func fill_curse_bag():
 		{ 
 			key = "gift_horse",
 			description = "You will never look a gift horse in the mouth again.",
-			effect = "no curse or weapon descriptions"
+			effect = "no curse or weapon descriptions",
+			resource = "res://img/Baby.png"
 		},
 		{ 
 			key = "quake",
 			description = "You will feel the earth move under your feet.",
-			effect = "violent constant camera shake"
+			effect = "violent constant camera shake",
+			resource = "res://img/Baby.png"
 		},
 		{ 
 			key = "lego",
 			description = "Sometime in the next month, in real life, you are going to step on a lego barefoot.",
-			effect = "nothing"
+			effect = "nothing",
+			resource = "res://img/Baby.png"
 		},
 		{ 
 			key = "reverse_shot",
 			description = "You will always be looking back over your shoulder.",
-			effect = "fire in reverse"
+			effect = "fire in reverse",
+			resource = "res://img/Baby.png"
 		},
 		{ 
 			key = "reverse_run",
 			description = "You will always be running behind.",
-			effect = "walk  in reverse"
+			effect = "walk  in reverse",
+			resource = "res://img/Baby.png"
 		},
 		{ 
 			key = "hidden_trees",
 			description = "You won't be able to see the forest for the trees.",
-			effect = "invisible trees"
+			effect = "invisible trees",
+			resource = "res://img/Baby.png"
 		},
 		{
 			key = "penalty",
 			description = "You will start working on a great golf score.",
-			effect = "lose points"
+			effect = "lose points",
+			resource = "res://img/Baby.png"
 		},
 		# ================ Completed above this line =====================
 #		{ 

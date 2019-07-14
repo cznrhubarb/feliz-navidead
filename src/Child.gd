@@ -36,6 +36,9 @@ func add_weapon(weapon):
 	weapons.push_front(weapon)
 
 func add_curse(curse):
+	var curse_ui = get_tree().get_root().find_node("CurseListUI", true, false)
+	curse_ui.add_curse_icon(curse.resource)
+	
 	curses.push_front(curse)
 	if curse.key == "quake":
 		find_node("ChildCamera").shake(9999, 30, 5)
@@ -151,5 +154,5 @@ func updateAnimation():
 	else:
 		if direction.y >=0:
 			anim_player.play("WalkDown")
-		else:	
+		else:
 			anim_player.play("WalkUp")
