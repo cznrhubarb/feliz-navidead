@@ -12,6 +12,6 @@ func add_curse_icon(resource):
 	icon.texture = load(resource)
 	var scene_size = get_viewport().size
 	icon.position.x = scene_size.x - (icon_spacing * icon_count + icon_width * (1+icon_count))
-	icon.position.y = scene_size.y - icon_width
+	icon.position.y = scene_size.y - icon_width - 4
 	add_child(icon)
 	icon_count += 1
