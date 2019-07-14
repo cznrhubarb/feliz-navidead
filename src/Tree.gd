@@ -10,6 +10,10 @@ var child
 func _ready():
 	spr = find_node("Sprite")
 	child = get_tree().get_root().find_node("Child", true, false)
+	var anim = get_node("Sprite/AnimationPlayer")
+	if anim:
+		anim.play("Burn")
+		anim.seek(rand_range(0, anim.current_animation_length))
 
 func _process(delta):
 	if child.has_curse("hidden_trees"):
