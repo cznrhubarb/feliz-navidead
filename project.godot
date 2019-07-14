@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="santaria"
+config/name="Feliz Navidead"
 run/main_scene="res://scn/TitleScreen.tscn"
 
 [display]
