@@ -1,10 +1,10 @@
 extends StaticBody2D
 
-# variables
 var type = "pickup"
+var life
 
 func _ready():
-	pass
+	life = randi() % 20 + 5
 	
 func _on_PickupZone_body_entered(body):
 	if body.type == "child":
@@ -12,7 +12,7 @@ func _on_PickupZone_body_entered(body):
 
 func picked_up(player):
 	if player.health < 100:
-		player.health += 20
+		player.health += life
 		player.update_health()
-		player.game_hud.add_score(20)
+		player.game_hud.add_score(life)
 		queue_free()
