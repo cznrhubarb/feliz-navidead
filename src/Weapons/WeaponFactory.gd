@@ -12,7 +12,9 @@ static func make_weapon():
 	
 	# Automatic more often than manual
 	var auto = true if rand_range(0, 1) > 0.25 else false
+	# TODO: Manual shot weapons should be stronger on average
 	
-	# TODO: Manual shot weapons should be stronger
+	var max_scatter_degrees = 15
+	var scatter = rand_range(0, deg2rad(max_scatter_degrees))
 	
-	return load("res://src/Weapons/BaseWeapon.gd").new(bullet_prototype, shots_per_second, auto)
+	return load("res://src/Weapons/BaseWeapon.gd").new(bullet_prototype, shots_per_second, auto, scatter)
