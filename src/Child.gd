@@ -107,6 +107,9 @@ func shoot(direction, auto):
 
 func take_damage(value):
 	health -= value
+	update_health()
+	
+func update_health():
 	if hp_bar:
 		hp_bar.update_health(health)
 	else:
