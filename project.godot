@@ -25,6 +25,7 @@ window/size/width=240
 window/size/height=135
 window/size/test_width=960
 window/size/test_height=540
+mouse_cursor/custom_image="res://img/Cursor.PNG"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
