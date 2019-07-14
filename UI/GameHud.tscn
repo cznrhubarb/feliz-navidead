@@ -2,20 +2,26 @@
 
 [ext_resource path="res://UI/GameHud.gd" type="Script" id=1]
 [ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UI/GiftDialog.gd" type="Script" id=3]
-[ext_resource path="res://UI/fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://UI/fonts/BerkshireSwash-Regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scn/ConfettiBlaster.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/BugFactory.gd" type="Script" id=7]
-[ext_resource path="res://scn/CurseList.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scn/CurseList.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/fonts/BerkshireSwash-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://UI/GiftDialog.gd" type="Script" id=5]
+[ext_resource path="res://UI/fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scn/ConfettiBlaster.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/BugFactory.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
 
+[sub_resource type="DynamicFont" id=9]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 9
 extra_spacing_char = -1
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://UI/fonts/ShareTechMono-Regular.ttf"
@@ -34,17 +40,11 @@ font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 10
-font_data = ExtResource( 5 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 11
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 12
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
+font_data = ExtResource( 6 )
 
 [node name="GameHud" type="CanvasLayer"]
 pause_mode = 2
@@ -58,9 +58,20 @@ margin_bottom = -3.0
 rect_pivot_offset = Vector2( 30, 2.5 )
 custom_styles/panel = SubResource( 1 )
 
+[node name="CurseListUI" parent="." instance=ExtResource( 3 )]
+
+[node name="CurseLabel" type="Label" parent="."]
+margin_left = 201.389
+margin_top = 121.151
+margin_right = 241.389
+margin_bottom = 138.151
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.309804, 0.00392157, 0.482353, 1 )
+text = "Curses"
+
 [node name="GiftDialog" type="Container" parent="."]
 visible = false
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="Panel" type="Panel" parent="GiftDialog"]
 margin_left = 10.6028
@@ -134,29 +145,18 @@ custom_fonts/font = SubResource( 8 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="LeftConfettiBlaster" parent="." instance=ExtResource( 6 )]
+[node name="LeftConfettiBlaster" parent="." instance=ExtResource( 7 )]
 visible = false
 position = Vector2( 0.794434, 135.054 )
 amount = 120
 explosiveness = 0.3
 
-[node name="RightConfettiBlaster2" parent="." instance=ExtResource( 6 )]
+[node name="RightConfettiBlaster2" parent="." instance=ExtResource( 7 )]
 visible = false
 position = Vector2( 239.521, 133.068 )
 amount = 120
 explosiveness = 0.3
 
 [node name="BugFactory" type="Node" parent="."]
-script = ExtResource( 7 )
-
-[node name="CurseListUI" parent="." instance=ExtResource( 8 )]
-
-[node name="Label" type="Label" parent="."]
-margin_left = 201.389
-margin_top = 121.151
-margin_right = 241.389
-margin_bottom = 138.151
-custom_fonts/font = SubResource( 9 )
-custom_colors/font_color = Color( 0.309804, 0.00392157, 0.482353, 1 )
-text = "Curses"
+script = ExtResource( 8 )
 [connection signal="pressed" from="GiftDialog/Open" to="GiftDialog" method="_on_Open_pressed"]

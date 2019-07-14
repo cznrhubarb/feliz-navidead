@@ -129,7 +129,8 @@ func change_state(new_state):
 			collision_layer = 0
 			collision_mask = 0
 			set_collision_mask_bit(4, true)
-			set_collision_mask_bit(0, true)
+			# Turn this back on to make Santa collide with walls
+			#set_collision_mask_bit(0, true)
 			dash_duration = 0.75
 			dash_direction = (player.position - position).normalized()
 			anim_player.play("Run")
