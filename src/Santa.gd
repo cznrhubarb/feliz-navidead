@@ -157,9 +157,8 @@ func play_hohoho():
 	get_node("HoHoHo").play()
 	
 func explode(location = self.position):
-	var explosion_scene = load("res://scn/Explosion.tscn")
-	var explosion = explosion_scene.instance()
-	explosion.position = location
-	explosion.color = Color(1,.5,.5)
-	explosion.set_scale(Vector2(3,3))
-	get_node("..").add_child(explosion)
+	var death_scene = load("res://scn/SantaDeath.tscn")
+	var death = death_scene.instance()
+	death.position = location
+	death.get_node("Sprite").flip_h = spr.flip_h
+	get_node("..").add_child(death)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/very_long_death_sound_effect.ogg-302205f4759b233d4d60629db3b3fbd0.oggstr"
+
+[deps]
+
+source_file="res://aud/very_long_death_sound_effect.ogg"
+dest_files=[ "res://.import/very_long_death_sound_effect.ogg-302205f4759b233d4d60629db3b3fbd0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
