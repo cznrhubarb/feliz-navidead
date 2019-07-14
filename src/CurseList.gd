@@ -6,10 +6,6 @@ var icon_spacing = icon_width / 4
 
 func _ready():
 	icon_count = 0
-	var bag = get_tree().get_root().find_node("CurseBag", true, false)
-	bag.fill_curse_bag()
-	for curse in bag.curses:
-		add_curse_icon(curse.resource)
 
 func add_curse_icon(resource):
 	var icon = Sprite.new()

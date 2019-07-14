@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Santa.gd" type="Script" id=1]
 [ext_resource path="res://img/Anim/BigSanta_Anim.PNG" type="Texture" id=2]
 [ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://aud/santa_step_one.ogg" type="AudioStream" id=4]
 [ext_resource path="res://aud/santa_step_two.ogg" type="AudioStream" id=5]
+[ext_resource path="res://aud/hohoho.ogg" type="AudioStream" id=6]
+[ext_resource path="res://aud/slam.ogg" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Charge Up"
@@ -41,9 +43,12 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.8 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "play_hohoho"
+}, {
 "args": [ "dash" ],
 "method": "change_state"
 } ]
@@ -88,11 +93,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.3, 0.301, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "add_crack"
+}, {
+"args": [  ],
+"method": "play_slam"
 }, {
 "args": [ "idle" ],
 "method": "change_state"
@@ -171,3 +179,11 @@ stream = ExtResource( 4 )
 
 [node name="StepTwo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="HoHoHo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 5.0
+
+[node name="Slam" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 20.0

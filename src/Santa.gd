@@ -2,18 +2,19 @@ extends KinematicBody2D
 
 export var walk_speed = 50
 export var run_speed = 200
-export var max_follow_distance = 125
+export var max_follow_distance = 300
 
 # warning-ignore:unused_class_variable
 var type = "enemy"
 var player
+var factory
 var hp_bar
 var max_health = 1000
 var health = max_health
 var collision_info
 var anim_player
-var spr
 
+var spr
 var step_sounds
 var step_sound_one_is_next = true
 var step_delay = 0
@@ -29,6 +30,7 @@ var state = "idle"
 
 func _ready():
 	player = get_tree().get_root().find_node("Child", true, false)
+	factory = get_tree().get_root().find_node("GingerFactory", true, false)
 	hp_bar = get_node("HP_Bar")
 	anim_player = find_node("AnimationPlayer", true)
 	spr = get_node("Sprite")
@@ -100,6 +102,8 @@ func take_damage(value):
 	if health <= 0:
 		var game_hud = get_tree().get_root().find_node("GameHud", true, false)
 		game_hud.add_score(250)
+		factory.santa_count -= 1
+		factory.last_santa = factory.seconds
 		queue_free()
 		# TODO: VFX
 
@@ -145,4 +149,8 @@ func add_crack():
 	crack.position.x += (-14 if spr.flip_h else 14)
 	get_tree().get_root().find_node("TileMap", true, false).add_child(crack)
 
+func play_slam():
+	get_node("Slam").play()
 
+func play_hohoho():
+	get_node("HoHoHo").play()
