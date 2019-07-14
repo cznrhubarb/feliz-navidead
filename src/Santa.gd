@@ -65,7 +65,7 @@ func _physics_process(delta):
 			if collision_info:
 				var collider = collision_info.collider
 				if collider.type == "child":
-					collider.take_damage(10)
+					collider.take_damage(25)
 					change_state("attack")
 				elif collider.type == "tile_map":
 					idle_duration = 1.6
