@@ -91,6 +91,15 @@ margin_right = 142.094
 margin_bottom = 75.1081
 text = "but"
 
-[node name="ConfettiBlaster" parent="." instance=ExtResource( 3 )]
+[node name="LeftConfettiBlaster" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 0.794434, 135.054 )
+amount = 120
+explosiveness = 0.3
+
+[node name="RightConfettiBlaster2" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 239.521, 133.068 )
+amount = 120
+explosiveness = 0.3
 [connection signal="pressed" from="GiftDialog/Open" to="GiftDialog" method="_on_Open_pressed"]

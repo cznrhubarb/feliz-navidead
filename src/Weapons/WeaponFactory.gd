@@ -15,6 +15,4 @@ static func make_weapon():
 	
 	# TODO: Manual shot weapons should be stronger
 	
-	print("shots per second: " + str(shots_per_second))
-	print("automatic: " + str(auto))
 	return load("res://src/Weapons/BaseWeapon.gd").new(bullet_prototype, shots_per_second, auto)

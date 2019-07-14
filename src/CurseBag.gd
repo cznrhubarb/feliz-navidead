@@ -32,12 +32,12 @@ func fill_curse_bag():
 			description = "You will always be running behind.",
 			effect = "walk  in reverse"
 		},
-		# ================ Completed above this line =====================
 		{ 
 			key = "hidden_trees",
 			description = "You won't be able to see the forest for the trees.",
 			effect = "invisible trees"
 		},
+		# ================ Completed above this line =====================
 		{ 
 			key = "locusts",
 			description = "You will suffer from a swarm of locusts.",
@@ -58,6 +58,11 @@ func fill_curse_bag():
 			description = "You will learn to celebrate the small wins.",
 			effect = "each enemy kill causes a shit ton of confetti to spray out all over the screen"
 		},
+		{
+			key = "penalty",
+			description = "You will start working on a great golf score.",
+			effect = "lose points"
+		},
 #		{ 
 #			key = "frog_kiss",
 #			description = "You are turned into a frog until you are next kissed.",
@@ -65,7 +70,7 @@ func fill_curse_bag():
 #		},
 	]
 
-func get_curse(specific_curse_name = "reverse"):
+func get_curse(specific_curse_name = "penalty"):
 	if specific_curse_name != null:
 		for curse in curses:
 			if curse.key == specific_curse_name:
