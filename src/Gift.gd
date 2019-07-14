@@ -8,6 +8,10 @@ var dialog
 var type = "gift"
 
 func _ready():
+	var anim = find_node("AnimationPlayer")
+	anim.play("Burn", -1, 0.75)
+	anim.seek(rand_range(0, anim.current_animation_length))
+	
 	dialog = get_tree().get_root().find_node("GiftDialog", true, false)
 	weapon = Factory.make_weapon()
 	curse = get_tree().get_root().find_node("CurseBag", true, false).get_curse()
