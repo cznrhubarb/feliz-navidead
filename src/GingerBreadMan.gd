@@ -56,6 +56,7 @@ func take_damage(value):
 		#get_node("Groan").play()
 		queue_free()
 		factory.ginger_count -= 1
+		explode()
 		# TODO: VFX
 		
 		# LOL SO RANDOM 
@@ -76,6 +77,14 @@ func spawn_pickup(location):
 	pickup.position = location
 	pickup.life = 20
 	get_node("..").add_child(pickup)
+	
+func explode(location = self.position):
+	var explosion_scene = load("res://scn/Explosion.tscn")
+	var explosion = explosion_scene.instance()
+	explosion.position = location
+	explosion.color = Color(94,68,0)
+	get_node("..").add_child(explosion)
+	
 	
 	
 	
