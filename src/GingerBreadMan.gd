@@ -60,7 +60,7 @@ func take_damage(value):
 		# TODO: VFX
 		
 		# LOL SO RANDOM 
-		if str(max_health)[-1] == "0" || str(max_health)[-1] == "1":
+		if str(max_health)[-1] == "0":
 			spawn_pickup(self.position)
 
 		
@@ -82,7 +82,7 @@ func explode(location = self.position):
 	var explosion_scene = load("res://scn/Explosion.tscn")
 	var explosion = explosion_scene.instance()
 	explosion.position = location
-	explosion.color = Color(94,68,0)
+	explosion.color = Color(.47,.36,0)
 	get_node("..").add_child(explosion)
 	
 	

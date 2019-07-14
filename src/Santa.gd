@@ -104,6 +104,7 @@ func take_damage(value):
 		game_hud.add_score(250)
 		factory.santa_count -= 1
 		factory.last_santa = factory.seconds
+		explode()
 		queue_free()
 		# TODO: VFX
 
@@ -154,3 +155,11 @@ func play_slam():
 
 func play_hohoho():
 	get_node("HoHoHo").play()
+	
+func explode(location = self.position):
+	var explosion_scene = load("res://scn/Explosion.tscn")
+	var explosion = explosion_scene.instance()
+	explosion.position = location
+	explosion.color = Color(1,.5,.5)
+	explosion.set_scale(Vector2(3,3))
+	get_node("..").add_child(explosion)
