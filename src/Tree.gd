@@ -1,8 +1,8 @@
 extends StaticBody2D
 
-const start_fade_distance = 150
-const end_fade_distance = 25
-const reappear_distance = 15
+const start_fade_distance = 200
+const end_fade_distance = 30
+const reappear_distance = 13
 var type = "tree"
 var spr
 var child

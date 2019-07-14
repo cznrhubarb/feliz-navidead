@@ -16,6 +16,8 @@ var run_in_reverse = false
 var under_penalty = false
 var penalty_delay = 1
 var penalty_timer = penalty_delay
+#hack
+var already_dead = false
 
 func _ready():
 	game_hud = get_node("../../GameHud")
@@ -114,10 +116,11 @@ func update_health():
 		hp_bar.update_health(health)
 	else:
 		print("no HP bar found")
-	if health <= 0:
-		get_tree().paused = true
+	if health <= 0 and not already_dead:
+		already_dead = true
 		print("You have died.")
 		# TODO: VFX
+		get_tree().get_root().find_node("GameHud", true, false).add_child(load("res://scn/DeadScreen.tscn").instance())
 		
 func updateAnimation():
 	if is_moving:
