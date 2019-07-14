@@ -131,7 +131,13 @@ func change_state(new_state):
 			anim_player.play("Run")
 		"attack":
 			anim_player.play("SackWhack")
-			idle_duration = 1
-
+			idle_duration = 1.6
+			
+func add_crack():
+	var crack = load("res://scn/Crack.tscn").instance()
+	crack.position = position
+	crack.position.y += 14
+	crack.position.x += (-14 if spr.flip_h else 14)
+	get_tree().get_root().find_node("TileMap", true, false).add_child(crack)
 
 

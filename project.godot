@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Feliz NaviDEAD"
 run/main_scene="res://scn/TitleScreen.tscn"
+boot_splash/image="res://img/Anim/Intro_Animation/frame1.png"
 
 [display]
 
