@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://img/Anim/Explosion_Anim.PNG" type="Texture" id=2]
+[ext_resource path="res://aud/ginger_die.ogg" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
@@ -29,4 +30,8 @@ frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/Explode = SubResource( 1 )
+
+[node name="Groan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
 [connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_Animation_complete"]
