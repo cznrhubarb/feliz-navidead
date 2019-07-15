@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var Speed = 150
-export var max_follow_distance = 500
+export var max_follow_distance = 1500
 
 # warning-ignore:unused_class_variable
 var type = "enemy"

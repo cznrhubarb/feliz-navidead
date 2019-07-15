@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var walk_speed = 50
 export var run_speed = 200
-export var max_follow_distance = 300
+export var max_follow_distance = 1500
 
 # warning-ignore:unused_class_variable
 var type = "enemy"
@@ -37,6 +37,7 @@ func _ready():
 	regular_collision_layer = collision_layer
 	regular_collision_mask = collision_mask
 	step_sounds = [ get_node("StepOne"), get_node("StepTwo") ]
+	print(position)
 
 func _physics_process(delta):
 	step_delay -= delta
@@ -103,7 +104,7 @@ func take_damage(value):
 		var game_hud = get_tree().get_root().find_node("GameHud", true, false)
 		game_hud.add_score(250)
 		factory.santa_count -= 1
-		factory.last_santa = factory.seconds
+		factory.last_santa = factory.elapsed
 		explode()
 		queue_free()
 		# TODO: VFX
