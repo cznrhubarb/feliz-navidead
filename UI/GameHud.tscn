@@ -3,9 +3,9 @@
 [ext_resource path="res://UI/GameHud.gd" type="Script" id=1]
 [ext_resource path="res://UI/HP_Bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scn/CurseList.tscn" type="PackedScene" id=3]
-[ext_resource path="res://UI/fonts/BerkshireSwash-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://UI/fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://UI/GiftDialog.gd" type="Script" id=5]
-[ext_resource path="res://UI/fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://UI/fonts/BerkshireSwash-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scn/ConfettiBlaster.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/BugFactory.gd" type="Script" id=8]
 
@@ -13,15 +13,15 @@
 bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 10
-outline_size = 1
+size = 9
 outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = -1
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 9
 extra_spacing_char = -1
-font_data = ExtResource( 6 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFontData" id=4]
 font_path = "res://UI/fonts/ShareTechMono-Regular.ttf"
@@ -40,16 +40,16 @@ font_data = SubResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 10
-font_data = ExtResource( 4 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 11
-font_data = ExtResource( 6 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 9
 extra_spacing_char = -1
-font_data = ExtResource( 6 )
+font_data = ExtResource( 4 )
 
 [node name="GameHud" type="CanvasLayer"]
 pause_mode = 2
@@ -66,12 +66,13 @@ custom_styles/panel = SubResource( 1 )
 [node name="CurseListUI" parent="." instance=ExtResource( 3 )]
 
 [node name="CurseLabel" type="Label" parent="."]
-margin_left = 206.162
-margin_top = 119.804
-margin_right = 246.162
-margin_bottom = 136.804
+margin_left = 205.162
+margin_top = 122.804
+margin_right = 245.162
+margin_bottom = 139.804
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.309804, 0.00392157, 0.482353, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Curses"
 
 [node name="GiftDialog" type="Container" parent="."]
@@ -171,6 +172,7 @@ margin_top = 117.518
 margin_right = 66.2252
 margin_bottom = 128.518
 custom_fonts/font = SubResource( 10 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Health"
 align = 1
 [connection signal="pressed" from="GiftDialog/Open" to="GiftDialog" method="_on_Open_pressed"]

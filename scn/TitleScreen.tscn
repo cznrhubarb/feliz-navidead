@@ -43,7 +43,7 @@ pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 120, 67 )
+position = Vector2( 119.206, 75.3415 )
 frames = SubResource( 1 )
 frame = 21
 

@@ -57,11 +57,10 @@ func take_damage(value):
 		queue_free()
 		factory.ginger_count -= 1
 		explode()
-		# TODO: VFX
-		
-		# LOL SO RANDOM 
-		if str(max_health)[-1] == "0":
+		# LOL SO RANDOM
+		if rand_range(0, 1) <= 0.1:
 			spawn_pickup(self.position)
+
 
 		
 func attack(character):

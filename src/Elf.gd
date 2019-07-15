@@ -54,9 +54,7 @@ func take_damage(value):
 		die()
 		# TODO: VFX
 		
-		# LOL SO RANDOM 
-		if str(max_health)[-1] == "0":
-			spawn_pickup(self.position)
+
 
 func die():
 	var game_hud = get_tree().get_root().find_node("GameHud", true, false)
@@ -66,6 +64,10 @@ func die():
 	queue_free()
 	factory.elf_count -= 1
 	explode()
+	
+	# LOL SO RANDOM
+	if rand_range(0, 1) <= 0.1:
+		spawn_pickup(self.position)
 		
 func attack(character):
 	if player:
@@ -73,7 +75,7 @@ func attack(character):
 			var collider = collision_info.collider
 			if collider.type == "child":
 				collider.take_damage(damage)
-				
+
 func spawn_pickup(location):
 	var pickup_scene = load("res://scn/Pickup.tscn")
 	var pickup = pickup_scene.instance()
