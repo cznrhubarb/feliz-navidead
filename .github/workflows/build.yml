@@ -13,6 +13,5 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        chmod 777 godot.64
         ./godot.64 --path . --export HTML5 index.html
