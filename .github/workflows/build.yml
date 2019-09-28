@@ -15,4 +15,4 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        godot.64 --path . --export HTML5 index.html
+        ./godot.64 --path . --export HTML5 index.html
