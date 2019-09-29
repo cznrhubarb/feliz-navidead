@@ -9,9 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: Build
       run: |
-        chmod 777 godot.64
+        chmod 777 ./godot.64
         ./godot.64 --path . --export HTML5 index.html
